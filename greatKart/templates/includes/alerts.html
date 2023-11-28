@@ -1,0 +1,21 @@
+{% if messages %}
+    {% for message in messages %}
+        <div id="message" class="container">
+            <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %} role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important:{% endif %}
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<script>
+    // Add this script at the end of your HTML file
+    $(document).ready(function () {
+        // Automatically remove the alert after 5 seconds (adjust the time as needed)
+        setTimeout(function () {
+            $('#message').fadeOut('slow');
+        }, 3000);
+    });
+</script>

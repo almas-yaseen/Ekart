@@ -58,3 +58,9 @@ $(document).ready(function() {
 }); 
 // jquery end
 
+$(document).ready(function () {
+    // Automatically remove the alert after 5 seconds (adjust the time as needed)
+    setTimeout(function () {
+        $('#message').fadeOut('slow');
+    }, 5000);
+});
